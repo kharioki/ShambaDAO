@@ -1,3 +1,5 @@
+import { UnsupportedChainIdError } from "@web3-react/core";
+
 import { useEffect, useMemo, useState } from "react";
 import { ethers } from "ethers";
 
@@ -175,6 +177,18 @@ const App = () => {
         console.error("failed to nft balance", error);
       });
   }, [address]);
+
+  if (error instanceof UnsupportedChainIdError ) {
+    return (
+      <div className="unsupported-network">
+        <h2>Please connect to Rinkeby</h2>
+        <p>
+          This dapp only works on the Rinkeby network, please switch networks
+          in your connected wallet.
+        </p>
+      </div>
+    );
+  }
 
   // if user hasn't connected their wallet
   if (!address) {
