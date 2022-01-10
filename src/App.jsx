@@ -206,7 +206,7 @@ const App = () => {
     return (
       <div className="member-page">
         <h1>🚜 ShambaDAO Dashboard</h1>
-        <p>Congratulations on being a member</p>
+        <p>Welcome to decentralized farming</p>
         <div>
           <div>
             <h2>Member List</h2>
